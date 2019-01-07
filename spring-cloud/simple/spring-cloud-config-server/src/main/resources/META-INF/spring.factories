@@ -1,0 +1,4 @@
+# Application Context Initializers
+org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+  com.sestar.springcloudconfigserver.config.MyConfiguration,\
+  com.sestar.springcloudconfigserver.config.MyPropertiesLoader
