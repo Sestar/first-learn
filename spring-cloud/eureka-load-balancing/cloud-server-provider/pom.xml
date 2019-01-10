@@ -8,12 +8,11 @@
         <version>1.5.8.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
     <groupId>com.sestar</groupId>
-    <artifactId>spring-config-server</artifactId>
+    <artifactId>cloud-server-provider</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-config-server</name>
-    <description>It&#39;s config for other project which&#39;s name is spring-eureka-server</description>
+    <name>cloud-server-provider</name>
+    <description>It&#39;s server provider for eureka-load-balancing</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,20 +22,15 @@
     </properties>
 
     <dependencies>
-        <!-- Actuator插件 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <!-- Spring Cloud Server -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
-        </dependency>
         <!-- Eureka Client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
+        <!-- Actuator 插件 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
