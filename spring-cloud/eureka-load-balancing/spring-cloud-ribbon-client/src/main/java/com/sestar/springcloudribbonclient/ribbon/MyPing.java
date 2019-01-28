@@ -28,7 +28,7 @@ public class MyPing implements IPing {
     private String managerContextPath;
 
     /**
-     * @description 通过判断Server的health情况来决定Server是否存活,
+     * @description 通过判断Server的health情况来决定Server是否存活, 默认isAlive方法都是直接return true
      * @author zhangxinxin
      * @date 2019/1/23 10:13
      * @param server 服务对象

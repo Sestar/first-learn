@@ -47,26 +47,26 @@ public class SpringCloudRibbonClientApplication {
 
 
     /**
-     * @description 使用自定义负载均衡规则(永远选择可达服务器的最后一台)
+     * @description 使用自定义负载均衡规则(永远选择可达服务器的最后一台), 已使用配置方法绑定规则
      * @author zhangxinxin
      * @date 2019/1/16 13:46
      * @return com.netflix.loadbalancer.IRule
      **/
-    @Bean
-    public IRule getRule() {
-        return new MyRule();
-    }
+//    @Bean
+//    public IRule getRule() {
+//        return new MyRule();
+//    }
 
     /**
-     * @description 使用自定义负载均衡Ping(通过安全监测判断是否存活)
+     * @description 使用自定义负载均衡Ping(通过安全监测判断是否存活)，已使用配置方法绑定IPing
      * @author zhangxinxin
      * @date 2019/1/23 13:58
      * @return com.netflix.loadbalancer.IPing
      **/
-    @Bean
-    public IPing getPing() {
-        return new MyPing();
-    }
+//    @Bean
+//    public IPing getPing() {
+//        return new MyPing();
+//    }
 
 }
 
