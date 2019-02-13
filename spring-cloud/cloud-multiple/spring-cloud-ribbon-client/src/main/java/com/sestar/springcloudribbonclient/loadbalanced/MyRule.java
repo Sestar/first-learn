@@ -1,4 +1,4 @@
-package com.sestar.springcloudribbonclient.ribbon;
+package com.sestar.springcloudribbonclient.loadbalanced;
 
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.AbstractLoadBalancerRule;

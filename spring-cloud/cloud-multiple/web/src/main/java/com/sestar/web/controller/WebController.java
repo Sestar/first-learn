@@ -23,10 +23,10 @@ public class WebController {
     public String index() throws TimeoutException {
         int randomNbr = random.nextInt(200);
         if (randomNbr > 100) {
-            throw new TimeoutException("Demo Execution is timeout!");
+            throw new TimeoutException("randomNbr:" + randomNbr + "，Demo Execution is timeout!");
         }
 
-        return "Hello, World";
+        return "randomNbr:" + randomNbr + "，Hello, World";
     }
 
 }

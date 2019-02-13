@@ -1,11 +1,8 @@
 package com.sestar.springcloudribbonclient;
 
-import com.netflix.loadbalancer.IPing;
-import com.netflix.loadbalancer.IRule;
-import com.sestar.springcloudribbonclient.ribbon.MyPing;
-import com.sestar.springcloudribbonclient.ribbon.MyRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
@@ -15,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @RibbonClient(name = "cloud-server-provider-application")
 @EnableDiscoveryClient // 使用Eureka服务发现方式发现服务提供端
+@EnableCircuitBreaker  // Netflix Hystrix 熔断器
 public class SpringCloudRibbonClientApplication {
 
     public static void main(String[] args) {
@@ -43,7 +41,9 @@ public class SpringCloudRibbonClientApplication {
      * @return org.springframework.web.client.RestTemplate
      **/
     @Bean(name = "simpleRestTemplate")
-    public RestTemplate getSimplateRestTemplate() {return new RestTemplate();}
+    public RestTemplate getSimplateRestTemplate() {
+        return new RestTemplate();
+    }
 
 
     /**

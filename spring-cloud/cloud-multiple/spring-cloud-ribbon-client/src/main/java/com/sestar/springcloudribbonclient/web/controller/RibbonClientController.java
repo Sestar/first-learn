@@ -1,34 +1,63 @@
 package com.sestar.springcloudribbonclient.web.controller;
 
 import com.sestar.springcloudribbonclient.domain.User;
+import com.sestar.springcloudribbonclient.hystrix.RibbonClientHystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.Resource;
-import java.io.IOException;
+import javax.annotation.PostConstruct;
 
 /**
- * @description 访问服务提供端Controller的服务
  * @author zhangxinxin
+ * @description 访问服务提供端Controller的服务
  * @date 2019/1/10 14:39
  **/
 @RestController
 public class RibbonClientController {
 
-    @Autowired
-    @Qualifier("loadBalanceRestTemplate")
+    /**
+     * 具有负载均衡的RestTemplate
+     **/
     private RestTemplate restTemplate;
 
-    @Value("${service-provider.application.name}")
+    /**
+     * 服务提供端的服务名称
+     **/
     private String applicationName;
 
+    /**
+     * HystrixCommand只能执行一次, 所以servlet必须每次执行前先 new HystrixCommand对象, 否则IllegalStateException
+     * 所以HystrixCommand不适用于作为属性变量
+     **/
+    @SuppressWarnings("all")
+    private RibbonClientHystrixCommand hystrixCommand;
+
+    /**
+     * PostConstruct注释使得该方法在初始化之前执行, 配合上面hystrixCommand变量属性使用, 当使用hystrixCommand执行两次之后会爆
+     * “This instance can only be executed once. Please instantiate a new instance.” 错误
+     * 所以HystrixCommand不适用于作为属性变量
+     **/
+    @PostConstruct
+    public void init() {
+        this.hystrixCommand = new RibbonClientHystrixCommand(applicationName, restTemplate);
+    }
+
+    public RibbonClientController(@Autowired @Qualifier("loadBalanceRestTemplate") RestTemplate restTemplate,
+                                  @Value("${service-provider.application.name}") String applicationName) {
+        this.restTemplate = restTemplate;
+        this.applicationName = applicationName;
+    }
+
+    /**
+     * @description 测试负载均衡
+     * @author zhangxinxin
+     * @date 2019/2/12 17:59
+     * @return java.lang.String
+     **/
     @GetMapping("/greeting")
     public String greeting() {
         User user = new User();
@@ -39,5 +68,23 @@ public class RibbonClientController {
 
         return restTemplate.postForObject(url, user, String.class);
     }
+
+    /**
+     * @description 测试Hystrix熔断器(RibbonClient和ServerProvider都有Hystrix熔断器)
+     * @author zhangxinxin
+     * @date 2019/2/12 18:01
+     * @return java.lang.String
+     **/
+    @GetMapping("/timeoutHystrixOfProvider")
+    public String timeoutHystrixOfProvider() {
+        /*
+         * 该方法执行两次之后会爆
+         *“This instance can only be executed once. Please instantiate a new instance.” 错误
+         * 是由于HystrixCommand一个实例只能执行一次, 所以每次执行需要一个新的HystrixCommand
+         **/
+//        return hystrixCommand.execute().toString();
+        return new RibbonClientHystrixCommand(applicationName, restTemplate).execute().toString();
+    }
+
 
 }
