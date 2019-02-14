@@ -52,7 +52,7 @@ public class ServerProviderController {
     }
 
     /**
-     * @description operaHystrix熔断后执行的方法
+     * @description operaHystrix熔断后执行回滚方法
      * @author zhangxinxin
      * @date 2019/2/12 14:57
      * @return java.lang.String
