@@ -14,11 +14,11 @@
 
     <!-- 子项目 -->
     <modules>
-        <module>cloud-server-provider</module>
-        <module>spring-cloud-ribbon-client</module>
-        <module>spring-eureka-server</module>
-        <module>web</module>
+        <module>user-service-provider</module>
+        <module>user-service-client</module>
+        <module>eureka-server</module>
         <module>hystrix-dashboard</module>
+        <module>user-api</module>
     </modules>
 
     <properties>
