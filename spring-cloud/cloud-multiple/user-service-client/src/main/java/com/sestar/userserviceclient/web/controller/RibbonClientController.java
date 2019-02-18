@@ -1,6 +1,5 @@
 package com.sestar.userserviceclient.web.controller;
 
-import com.sestar.userserviceclient.domain.User;
 import com.sestar.userserviceclient.hystrix.RibbonClientHystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -47,26 +46,9 @@ public class RibbonClientController {
     }
 
     public RibbonClientController(@Autowired @Qualifier("loadBalanceRestTemplate") RestTemplate restTemplate,
-                                  @Value("${service-provider.application.name}") String applicationName) {
+                                  @Value("${provider.server.application.name}") String applicationName) {
         this.restTemplate = restTemplate;
         this.applicationName = applicationName;
-    }
-
-    /**
-     * @description 测试负载均衡
-     * @author zhangxinxin
-     * @date 2019/2/12 17:59
-     * @return java.lang.String
-     **/
-    @GetMapping("/greeting")
-    public String greeting() {
-        User user = new User();
-        user.setId(123L);
-        user.setName("sestar");
-
-        String url = "http://" + applicationName + "/greeting";
-
-        return restTemplate.postForObject(url, user, String.class);
     }
 
     /**

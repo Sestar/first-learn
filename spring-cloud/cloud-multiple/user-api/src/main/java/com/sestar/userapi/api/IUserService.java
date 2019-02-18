@@ -1,6 +1,10 @@
 package com.sestar.userapi.api;
 
 import com.sestar.userapi.domain.User;
+import com.sestar.userapi.hystrix.UserServerFallBack;
+import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -9,7 +13,8 @@ import java.util.List;
  * @author zhangxinxin
  * @date 2019/2/15 18:00
  */
-public interface UserServer {
+@FeignClient(name = "${user.server.name}", fallback = UserServerFallBack.class) // 利用占位符避免未来整合硬编码
+public interface IUserService {
 
     /**
      * @description 保存用户
@@ -18,6 +23,7 @@ public interface UserServer {
      * @param user 用户信息
      * @return boolean
      */
+    @PostMapping("/user/save")
     boolean saveUser(User user);
 
     /**
@@ -26,6 +32,7 @@ public interface UserServer {
      * @date 2019/2/15 17:59
      * @return java.util.List<com.sestar.userapi.domain.User>
      */
+    @GetMapping("/user/find/all")
     List<User> findAll();
 
 }

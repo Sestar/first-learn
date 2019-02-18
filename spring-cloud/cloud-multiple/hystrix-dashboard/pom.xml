@@ -10,8 +10,6 @@
     </parent>
 
     <artifactId>hystrix-dashboard</artifactId>
-    <name>hystrix-dashboard</name>
-    <description>It's used to observer hystrix execution</description>
 
     <dependencies>
         <!-- Hystrix Dashboard -->

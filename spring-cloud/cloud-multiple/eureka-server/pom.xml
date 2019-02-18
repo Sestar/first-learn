@@ -11,9 +11,6 @@
     </parent>
 
     <artifactId>eureka-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>eureka-server</name>
-    <description>It&#39;s server for eureka-load-balancing</description>
 
     <dependencies>
         <!-- Eureka Server -->

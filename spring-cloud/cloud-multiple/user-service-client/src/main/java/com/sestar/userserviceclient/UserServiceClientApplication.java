@@ -1,18 +1,21 @@
 package com.sestar.userserviceclient;
 
+import com.sestar.userapi.api.IUserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@RibbonClient(name = "user-server-provider-application")
+@RibbonClient(name = "user-service-provider-application")
 @EnableDiscoveryClient // 使用Eureka服务发现方式发现服务提供端
 @EnableCircuitBreaker  // Netflix Hystrix 熔断器
+@EnableFeignClients(clients = IUserService.class) // 申明 UserService 接口作为 Feign Client 调用
 public class UserServiceClientApplication {
 
     public static void main(String[] args) {

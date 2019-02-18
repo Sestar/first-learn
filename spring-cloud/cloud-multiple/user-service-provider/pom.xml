@@ -11,10 +11,15 @@
     </parent>
 
     <artifactId>user-service-provider</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>user-service-provider</name>
 
     <dependencies>
+        <!-- 依赖 用户 API -->
+        <dependency>
+            <groupId>com.sestar</groupId>
+            <artifactId>user-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- Eureka Client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

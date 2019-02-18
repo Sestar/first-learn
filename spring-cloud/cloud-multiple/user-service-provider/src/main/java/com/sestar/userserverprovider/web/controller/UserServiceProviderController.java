@@ -2,12 +2,17 @@ package com.sestar.userserverprovider.web.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import com.sestar.userserverprovider.domain.User;
+import com.sestar.userapi.api.IUserService;
+import com.sestar.userapi.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -16,19 +21,52 @@ import java.util.Random;
  * @date 2019/1/10 14:30
  **/
 @RestController
-public class ServerProviderController {
+public class UserServiceProviderController implements IUserService {
 
-    @Value("${server.port}")
-    private String port;
+    /**
+     * 用户服务中心
+     **/
+    private final IUserService userServer;
 
     /**
      * 随机数工具类
      **/
     private static final Random random = new Random();
 
-    @PostMapping("/greeting")
-    public String greeting(@RequestBody User user) {
-        return "greeting:" + user.toString() + " port:" + port;
+    @Value("${server.port}")
+    private String port;
+
+    @Autowired
+    public UserServiceProviderController(@Qualifier("inMemoryUserService") IUserService userServer) {
+        this.userServer = userServer;
+    }
+
+    // 通过方法继承，URL 映射 ："/user/save"
+    @Override
+    public boolean saveUser(@RequestBody User user) {
+        return userServer.saveUser(user);
+    }
+
+    // 通过方法继承，URL 映射 ："/user/find/all"
+    @HystrixCommand(
+            commandProperties = {   // command 配置
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100") // 设置最大执行时间
+            },
+            fallbackMethod = "fallbackForGetUsers" // 设置熔断后执行回滚方法
+    )
+    @Override
+    public List<User> findAll() {
+        return userServer.findAll();
+    }
+
+    /**
+     * @description findAll配置HystrixCommand的回滚方法
+     * @author zhangxinxin
+     * @date 2019/2/15 21:02
+     * @return java.util.List<com.sestar.userapi.domain.User>
+     */
+    public List<User> fallbackForGetUsers() {
+        return Collections.emptyList();
     }
 
     /**
