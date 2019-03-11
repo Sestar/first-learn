@@ -1,11 +1,15 @@
 package com.sestar.userapi.domain;
 
+import java.io.Serializable;
+
 /**
  * @description 实体类
  * @author zhangxinxin
  * @date 2019/1/10 14:19
  **/
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = -4961274264021393330L;
 
     private String name;
 

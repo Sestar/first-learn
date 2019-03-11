@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -17,7 +18,15 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service("inMemoryUserService")
 public class InMemoryUserService implements IUserService {
 
+    /**
+     * User缓存
+     */
     private Map<Long, User> repository = new ConcurrentHashMap<>();
+
+    /**
+     * 随机数工具类
+     **/
+    private static final Random random = new Random();
 
     @Override
     public boolean saveUser(User user) {
@@ -27,6 +36,14 @@ public class InMemoryUserService implements IUserService {
     @Override
     public List<User> findAll() {
         return new ArrayList(repository.values());
+    }
+
+    @Override
+    public String timeoutHystrix() throws Exception {
+        int randomNbr = random.nextInt(200);
+        System.out.println("Execution Time: " + randomNbr);
+        Thread.sleep(randomNbr);
+        return "randomNbr:" + randomNbr;
     }
 
 }

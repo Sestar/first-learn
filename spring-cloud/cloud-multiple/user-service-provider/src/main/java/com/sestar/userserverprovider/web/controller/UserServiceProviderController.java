@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -48,25 +47,21 @@ public class UserServiceProviderController implements IUserService {
     }
 
     // 通过方法继承，URL 映射 ："/user/find/all"
-    @HystrixCommand(
-            commandProperties = {   // command 配置
-                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100") // 设置最大执行时间
-            },
-            fallbackMethod = "fallbackForGetUsers" // 设置熔断后执行回滚方法
-    )
     @Override
     public List<User> findAll() {
         return userServer.findAll();
     }
 
-    /**
-     * @description findAll配置HystrixCommand的回滚方法
-     * @author zhangxinxin
-     * @date 2019/2/15 21:02
-     * @return java.util.List<com.sestar.userapi.domain.User>
-     */
-    public List<User> fallbackForGetUsers() {
-        return Collections.emptyList();
+    // 通过反复集成， URL 映射 : "/timeoutHystrix"
+    @HystrixCommand(
+            commandProperties = {   // command 配置
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100") // 设置最大执行时间
+            },
+            fallbackMethod = "cuttingOutFallBack" // 设置熔断后执行回滚方法
+    )
+    @Override
+    public String timeoutHystrix() throws Exception {
+        return userServer.timeoutHystrix();
     }
 
     /**

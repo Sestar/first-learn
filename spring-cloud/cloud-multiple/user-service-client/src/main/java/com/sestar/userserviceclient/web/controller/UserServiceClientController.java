@@ -3,6 +3,7 @@ package com.sestar.userserviceclient.web.controller;
 import com.sestar.userapi.api.IUserService;
 import com.sestar.userapi.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +17,7 @@ import java.util.List;
  * @date 2019/2/15 21:30
  **/
 @RestController
-public class UserServiceClientController implements IUserService {
+public class UserServiceClientController {
 
     /**
      * 用户服务中心
@@ -24,6 +25,16 @@ public class UserServiceClientController implements IUserService {
     @SuppressWarnings("all")
     @Autowired
     private IUserService userServer;
+
+    /**
+     * Kafka Template
+     */
+    private final KafkaTemplate<String, Object> kafkaTemplate;
+
+    @Autowired
+    public UserServiceClientController(KafkaTemplate kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
 
     @PostMapping("/user/save")
     public boolean saveUser(@RequestBody User user) {
@@ -33,6 +44,11 @@ public class UserServiceClientController implements IUserService {
     @GetMapping("/user/find/all")
     public List<User> findAll() {
         return userServer.findAll();
+    }
+
+    @GetMapping("/timeoutHystrix")
+    public String timeoutHystrix() throws Exception {
+        return userServer.timeoutHystrix();
     }
 
 }

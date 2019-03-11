@@ -7,6 +7,7 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
@@ -16,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient // 使用Eureka服务发现方式发现服务提供端
 @EnableCircuitBreaker  // Netflix Hystrix 熔断器
 @EnableFeignClients(clients = IUserService.class) // 申明 UserService 接口作为 Feign Client 调用
+@EnableHystrix // Netflix Hystrix 熔断器
 public class UserServiceClientApplication {
 
     public static void main(String[] args) {
@@ -47,29 +49,6 @@ public class UserServiceClientApplication {
     public RestTemplate getSimplateRestTemplate() {
         return new RestTemplate();
     }
-
-
-    /**
-     * @description 使用自定义负载均衡规则(永远选择可达服务器的最后一台), 已使用配置方法绑定规则
-     * @author zhangxinxin
-     * @date 2019/1/16 13:46
-     * @return com.netflix.loadbalancer.IRule
-     **/
-//    @Bean
-//    public IRule getRule() {
-//        return new MyRule();
-//    }
-
-    /**
-     * @description 使用自定义负载均衡Ping(通过安全监测判断是否存活)，已使用配置方法绑定IPing
-     * @author zhangxinxin
-     * @date 2019/1/23 13:58
-     * @return com.netflix.loadbalancer.IPing
-     **/
-//    @Bean
-//    public IPing getPing() {
-//        return new MyPing();
-//    }
 
 }
 

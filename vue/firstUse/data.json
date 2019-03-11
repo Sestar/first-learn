@@ -1,0 +1,48 @@
+{
+  "theme": "Vue.js",
+  "title": ["学习", "生态系统", "团队", "支持Vue", "多语言", "参与翻译"],
+  "catalog": [
+    {
+      "modular": "基础",
+      "url": "/essentials",
+      "subtitle": [
+        "介绍",
+        "计算属性和侦听器"
+      ]
+    },
+    {
+      "modular": "深入了解组件",
+      "url": "/componentDepth",
+      "subtitle": [
+        "组件注册",
+        "插槽"
+      ]
+    },
+    {
+      "modular": "过渡 & 动画",
+      "url": "/transitions",
+      "subtitle": [
+        "进入/离开&列表过渡",
+        "状态过渡"
+      ]
+    },
+    {
+      "modular": "可复用性 & 组合",
+      "url": "/reusability",
+      "subtitle": [
+        "混入",
+        "渲染函数&JSX"
+      ]
+    }
+  ],
+  "essentials": {
+    "reverseMsg": "I am super man!!!",
+    "tipMsg": "在中国传统文化教育中的阴阳五行哲学思想、儒家伦理道德观念、中医营养摄生学说，还有文化艺术成就、饮食审美风尚、民族性格特征诸多因素的影响下，创造出彪炳史册的中国烹饪技艺，形成博大精深的中国饮食文化。从外延看，中国饮食文化可以从时代与技法、地域与经济、民族与宗教、食品与食具、消费与层次、民俗与功能等多种角度进行分类，展示出不同的文化品味，体现出不同的使用价值，异彩纷呈。",
+    "htmlText": "<span style='color: #31708f'>v-html属性使用</span>",
+    "grocery": ["蔬菜", "奶酪", "水果"],
+    "judge": {
+      "array": ["v-for", "v-else", "v-bind", "i-col", "i-menuItem"],
+      "basis": ["v-", "i-"]
+    }
+  }
+}
