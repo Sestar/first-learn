@@ -9,26 +9,26 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>user-api</artifactId>
+    <artifactId>stream-binder-activemq</artifactId>
 
     <dependencies>
-        <!-- Spring Cloud Feign -->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-feign</artifactId>-->
-        <!--</dependency>-->
-
-        <!-- Lombok -->
+        <!-- Spring Boot 自动装配依赖 -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <optional>true</optional>
         </dependency>
 
-        <!-- Spring Cloud Bus -->
+        <!-- Sprig Boot Starter ActiveMQ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud Stream 核心库 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-bus</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-cloud-stream</artifactId>
         </dependency>
     </dependencies>
 

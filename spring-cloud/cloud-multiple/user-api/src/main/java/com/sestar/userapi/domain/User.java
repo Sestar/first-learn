@@ -1,5 +1,8 @@
 package com.sestar.userapi.domain;
 
+import lombok.Data;
+import lombok.ToString;
+
 import java.io.Serializable;
 
 /**
@@ -7,35 +10,25 @@ import java.io.Serializable;
  * @author zhangxinxin
  * @date 2019/1/10 14:19
  **/
+@Data
+@ToString
 public class User implements Serializable {
 
     private static final long serialVersionUID = -4961274264021393330L;
 
+    /**
+     * 账户姓名
+     */
     private String name;
 
+    /**
+     * 账户标识
+     */
     private Long id;
 
-    public String getName() {
-        return name;
-    }
+    /**
+     * 账户简介, 该字段无需序列化
+     */
+    private transient String desc;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                '}';
-    }
 }

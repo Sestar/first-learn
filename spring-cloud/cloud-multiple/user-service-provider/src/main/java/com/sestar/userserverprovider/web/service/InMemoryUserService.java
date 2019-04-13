@@ -35,15 +35,15 @@ public class InMemoryUserService implements IUserService {
 
     @Override
     public List<User> findAll() {
-        return new ArrayList(repository.values());
+        return new ArrayList<>(repository.values());
     }
 
-    @Override
-    public String timeoutHystrix() throws Exception {
-        int randomNbr = random.nextInt(200);
-        System.out.println("Execution Time: " + randomNbr);
-        Thread.sleep(randomNbr);
-        return "randomNbr:" + randomNbr;
-    }
+//    @Override
+//    public String timeoutHystrix() throws Exception {
+//        int randomNbr = random.nextInt(200);
+//        System.out.println(this.getClass().getName() + "#timeoutHystrix -> Execution Time: " + randomNbr);
+//        Thread.sleep(randomNbr);
+//        return "randomNbr:" + randomNbr;
+//    }
 
 }

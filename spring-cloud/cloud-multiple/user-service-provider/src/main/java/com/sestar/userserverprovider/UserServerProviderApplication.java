@@ -1,13 +1,15 @@
 package com.sestar.userserverprovider;
 
+import com.sestar.userserverprovider.stream.ConsumerChannel;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.stream.annotation.EnableBinding;
 
 @SpringBootApplication
-@EnableDiscoveryClient // 使用Eureka服务发现方式发现服务提供端
-@EnableHystrix // Netflix Hystrix 熔断器
+@EnableDiscoveryClient // 注册为 Eureka-Client
+//@EnableHystrix // Netflix Hystrix 熔断器
+@EnableBinding({ConsumerChannel.class}) // 订阅管道绑定
 public class UserServerProviderApplication {
 
     public static void main(String[] args) {

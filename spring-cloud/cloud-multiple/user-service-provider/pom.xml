@@ -13,7 +13,7 @@
     <artifactId>user-service-provider</artifactId>
 
     <dependencies>
-        <!-- 依赖 用户 API -->
+        <!-- 用户 API -->
         <dependency>
             <groupId>com.sestar</groupId>
             <artifactId>user-api</artifactId>
@@ -26,10 +26,59 @@
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
 
-        <!-- Netflix Hystrix -->
+        <!-- Config Client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix</artifactId>
+            <artifactId>spring-cloud-config-client</artifactId>
+        </dependency>
+
+        <!-- Netflix Hystrix -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-hystrix</artifactId>-->
+        <!--</dependency>-->
+
+        <!-- Kafka Binder -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-stream-binder-kafka</artifactId>-->
+        <!--</dependency>-->
+
+        <!-- Spring Cloud Stream Binder Rabbit MQ -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+        </dependency>
+
+        <!-- Sprig Boot Starter ActiveMQ -->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+        </dependency>-->
+
+        <!-- 依赖 stream-binder-activemq -->
+        <!--<dependency>-->
+            <!--<groupId>${project.groupId}</groupId>-->
+            <!--<artifactId>stream-binder-activemq</artifactId>-->
+            <!--<version>${project.version}</version>-->
+        <!--</dependency>-->
+
+        <!-- Spring Cloud Zipkin -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-zipkin</artifactId>-->
+        <!--</dependency>-->
+
+        <!-- Spring Cloud Sleuth -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud Sleuth Stream -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-stream</artifactId>
         </dependency>
     </dependencies>
 

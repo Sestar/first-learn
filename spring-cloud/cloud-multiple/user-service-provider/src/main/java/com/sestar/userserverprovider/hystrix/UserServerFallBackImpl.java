@@ -15,18 +15,18 @@ import java.util.List;
 @Component
 public class UserServerFallBackImpl extends IUserServerFallBack {
 
-    @Override
-    public boolean saveUser(User user) {
-        return false;
-    }
-
-    @Override
-    public List<User> findAll() {
-        return Collections.emptyList();
-    }
-
-    @Override
-    public String timeoutHystrix() {
-        return "timeoutHystrix Method Execution is cutting out!";
-    }
+//    @Override
+//    public boolean saveUser(User user) {
+//        return false;
+//    }
+//
+//    @Override
+//    public List<User> findAll() {
+//        return Collections.emptyList();
+//    }
+//
+//    @Override
+//    public String timeoutHystrix() {
+//        return "timeoutHystrix Method Execution is cutting out!";
+//    }
 }
