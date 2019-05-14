@@ -16,8 +16,6 @@ public interface ObjectConvertMapper {
 
     ObjectConvertMapper INSTANCE = Mappers.getMapper(ObjectConvertMapper.class);
 
-    UserVO toVo(UserDAO userDAO);
-
     UserDAO toDao(UserVO userVO);
 
 }

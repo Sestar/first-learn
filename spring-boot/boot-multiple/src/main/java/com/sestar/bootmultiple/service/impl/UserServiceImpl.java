@@ -1,6 +1,7 @@
 package com.sestar.bootmultiple.service.impl;
 
 import com.sestar.bootmultiple.dao.UserDAO;
+import com.sestar.bootmultiple.mapstrut.ObjectConvertMapper;
 import com.sestar.bootmultiple.service.IUserService;
 import com.sestar.bootmultiple.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +29,25 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public UserDAO simpleInfoOfUser() {
-        return null;
+        return ObjectConvertMapper.INSTANCE.toDao(userVO);
     }
 
     @Override
     public UserVO userInfoWithLink() {
-        return null;
+        return userVO;
+    }
+
+    @Override
+    public UserVO changeUserName(String name) {
+        userVO.setName(name);
+
+        return userVO;
+    }
+
+    @Override
+    public UserVO changeUserAge(Integer age) {
+        userVO.setAge(age);
+
+        return userVO;
     }
 }

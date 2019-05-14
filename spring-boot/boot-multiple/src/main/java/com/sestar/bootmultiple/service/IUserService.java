@@ -2,6 +2,7 @@ package com.sestar.bootmultiple.service;
 
 import com.sestar.bootmultiple.dao.UserDAO;
 import com.sestar.bootmultiple.vo.UserVO;
+import org.apache.catalina.User;
 import org.mapstruct.Mapping;
 
 import java.util.Map;
@@ -22,5 +23,15 @@ public interface IUserService {
      * 获取 UserVO (有超媒体API)
      */
     UserVO userInfoWithLink();
+
+    /**
+     * 修改用户名称
+     */
+    UserVO changeUserName(String name);
+
+    /**
+     * 修改用户年龄
+     */
+    UserVO changeUserAge(Integer age);
 
 }
