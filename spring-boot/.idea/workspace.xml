@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="791a4a51-22a2-4df7-8a9b-a0efb13d582f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/boot-multiple/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/boot-multiple/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/BootMultipleApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/BootMultipleApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/client/RestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/client/RestClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/config/BeanConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/controller/SimpleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/controller/SimpleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/convert/BaseConvertor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/dao/UserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/mapstrut/ObjectConvertMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/mapstrut/ObjectConvertMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot-multiple/src/main/java/com/sestar/bootmultiple/vo/UserVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot-multiple/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/boot-multiple/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot-multiple/src/test/java/com/sestar/bootmultiple/BootMultipleApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot-multiple/src/test/java/com/sestar/bootmultiple/BootMultipleApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="E:\coding\firstLearn\spring-boot\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/Program Files/apache-maven-3.5.4" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kxpsDXmUIdAFfsTSWk0GeW0tQY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/boot-multiple" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="791a4a51-22a2-4df7-8a9b-a0efb13d582f" name="Default Changelist" comment="" />
+      <created>1606652301923</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606652301923</updated>
+      <workItem from="1606652303013" duration="37000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
